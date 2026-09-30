@@ -1,13 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Minha Loja</title>
+    <title>ASOMBRADO STORE</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -34,6 +35,7 @@
             color: inherit;
         }
 
+
         /* =========================
            BARRA SUPERIOR
         ========================= */
@@ -45,6 +47,7 @@
             padding: 9px 15px;
             font-size: 13px;
         }
+
 
         /* =========================
            CABEÇALHO
@@ -73,6 +76,11 @@
         .logo span {
             font-weight: normal;
         }
+
+
+        /* =========================
+           PESQUISA
+        ========================= */
 
         .search {
             flex: 1;
@@ -105,6 +113,15 @@
             cursor: pointer;
         }
 
+        .search button:hover {
+            background: #333;
+        }
+
+
+        /* =========================
+           AÇÕES DO CABEÇALHO
+        ========================= */
+
         .header-actions {
             display: flex;
             gap: 20px;
@@ -122,6 +139,7 @@
             font-size: 24px;
             margin-bottom: 3px;
         }
+
 
         /* =========================
            MENU
@@ -149,6 +167,7 @@
         .menu a:hover {
             opacity: 0.55;
         }
+
 
         /* =========================
            BANNER
@@ -201,8 +220,9 @@
             opacity: 0.9;
         }
 
+
         /* =========================
-           CATEGORIAS
+           SEÇÕES
         ========================= */
 
         .section {
@@ -224,6 +244,11 @@
             color: var(--cinza);
             font-size: 14px;
         }
+
+
+        /* =========================
+           CATEGORIAS
+        ========================= */
 
         .categories {
             display: grid;
@@ -260,6 +285,7 @@
             color: var(--cinza);
             font-size: 13px;
         }
+
 
         /* =========================
            PRODUTOS
@@ -345,6 +371,7 @@
             background: #333;
         }
 
+
         /* =========================
            BENEFÍCIOS
         ========================= */
@@ -383,6 +410,7 @@
             color: #777;
             font-size: 12px;
         }
+
 
         /* =========================
            NEWSLETTER
@@ -429,6 +457,7 @@
             cursor: pointer;
         }
 
+
         /* =========================
            RODAPÉ
         ========================= */
@@ -473,6 +502,7 @@
             font-size: 12px;
         }
 
+
         /* =========================
            RESPONSIVO
         ========================= */
@@ -501,6 +531,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
 
         @media (max-width: 600px) {
 
@@ -583,47 +614,78 @@
                 gap: 25px;
             }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- BARRA SUPERIOR -->
+
+    <!-- =========================
+         BARRA SUPERIOR
+    ========================= -->
 
     <div class="top-bar">
         🚚 Envio rápido e atendimento especializado
     </div>
 
 
-    <!-- CABEÇALHO -->
+    <!-- =========================
+         CABEÇALHO
+    ========================= -->
 
     <header>
 
         <div class="header-main">
 
             <a href="#" class="logo">
-                MINHA<span>LOJA</span>
+                ASOMBRADO<span>STORE</span>
             </a>
 
+
+            <!-- PESQUISA -->
+
             <div class="search">
+
                 <input
                     type="text"
+                    id="campoBusca"
                     placeholder="O que você está procurando?"
+                    onkeyup="pesquisarProdutos()"
                 >
 
-                <button>🔎</button>
+                <button onclick="pesquisarProdutos()">
+                    🔎
+                </button>
+
             </div>
+
+
+            <!-- AÇÕES -->
 
             <div class="header-actions">
 
                 <div class="action">
-                    <span class="action-icon">👤</span>
+
+                    <span class="action-icon">
+                        👤
+                    </span>
+
                     Conta
+
                 </div>
 
+
                 <div class="action">
-                    <span class="action-icon">🛒</span>
+
+                    <span class="action-icon">
+                        🛒
+                    </span>
+
                     Carrinho
+
                 </div>
 
             </div>
@@ -637,11 +699,25 @@
 
             <div class="menu-container">
 
-                <a href="#">Início</a>
-                <a href="#categorias">Categorias</a>
-                <a href="#produtos">Produtos</a>
-                <a href="#ofertas">Ofertas</a>
-                <a href="#contato">Contato</a>
+                <a href="#">
+                    Início
+                </a>
+
+                <a href="#categorias">
+                    Categorias
+                </a>
+
+                <a href="#produtos">
+                    Produtos
+                </a>
+
+                <a href="#ofertas">
+                    Ofertas
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
 
             </div>
 
@@ -650,13 +726,18 @@
     </header>
 
 
-    <!-- BANNER -->
+
+    <!-- =========================
+         BANNER
+    ========================= -->
 
     <section class="banner">
 
         <div class="banner-content">
 
-            <small>Bem-vindo à nossa loja</small>
+            <small>
+                Bem-vindo à ASOMBRADO STORE
+            </small>
 
             <h1>
                 Qualidade, praticidade e segurança.
@@ -667,7 +748,10 @@
                 simples e rápida.
             </p>
 
-            <a href="#produtos" class="banner-button">
+            <a
+                href="#produtos"
+                class="banner-button"
+            >
                 Ver produtos
             </a>
 
@@ -676,13 +760,21 @@
     </section>
 
 
-    <!-- CATEGORIAS -->
 
-    <section class="section" id="categorias">
+    <!-- =========================
+         CATEGORIAS
+    ========================= -->
+
+    <section
+        class="section"
+        id="categorias"
+    >
 
         <div class="section-title">
 
-            <h2>Categorias</h2>
+            <h2>
+                Categorias
+            </h2>
 
             <p>
                 Encontre rapidamente o que você procura.
@@ -693,13 +785,16 @@
 
         <div class="categories">
 
+
             <div class="category">
 
                 <div class="category-icon">
                     🛍️
                 </div>
 
-                <h3>Categoria 1</h3>
+                <h3>
+                    Categoria 1
+                </h3>
 
                 <p>
                     Confira os produtos
@@ -708,13 +803,16 @@
             </div>
 
 
+
             <div class="category">
 
                 <div class="category-icon">
                     ⭐
                 </div>
 
-                <h3>Categoria 2</h3>
+                <h3>
+                    Categoria 2
+                </h3>
 
                 <p>
                     Produtos selecionados
@@ -723,13 +821,19 @@
             </div>
 
 
-            <div class="category">
+
+            <div
+                class="category"
+                id="ofertas"
+            >
 
                 <div class="category-icon">
                     🔥
                 </div>
 
-                <h3>Ofertas</h3>
+                <h3>
+                    Ofertas
+                </h3>
 
                 <p>
                     Confira nossas ofertas
@@ -738,13 +842,16 @@
             </div>
 
 
+
             <div class="category">
 
                 <div class="category-icon">
                     🆕
                 </div>
 
-                <h3>Novidades</h3>
+                <h3>
+                    Novidades
+                </h3>
 
                 <p>
                     Produtos novos
@@ -757,13 +864,21 @@
     </section>
 
 
-    <!-- PRODUTOS -->
 
-    <section class="section" id="produtos">
+    <!-- =========================
+         PRODUTOS
+    ========================= -->
+
+    <section
+        class="section"
+        id="produtos"
+    >
 
         <div class="section-title">
 
-            <h2>Produtos em destaque</h2>
+            <h2>
+                Produtos em destaque
+            </h2>
 
             <p>
                 Alguns dos produtos da nossa loja.
@@ -805,13 +920,17 @@
                         💚 Pagamento via Pix
                     </div>
 
-                    <a href="#" class="product-button">
+                    <a
+                        href="#"
+                        class="product-button"
+                    >
                         Ver produto
                     </a>
 
                 </div>
 
             </div>
+
 
 
             <!-- PRODUTO 2 -->
@@ -844,13 +963,17 @@
                         💚 Pagamento via Pix
                     </div>
 
-                    <a href="#" class="product-button">
+                    <a
+                        href="#"
+                        class="product-button"
+                    >
                         Ver produto
                     </a>
 
                 </div>
 
             </div>
+
 
 
             <!-- PRODUTO 3 -->
@@ -883,13 +1006,17 @@
                         💚 Pagamento via Pix
                     </div>
 
-                    <a href="#" class="product-button">
+                    <a
+                        href="#"
+                        class="product-button"
+                    >
                         Ver produto
                     </a>
 
                 </div>
 
             </div>
+
 
 
             <!-- PRODUTO 4 -->
@@ -922,7 +1049,10 @@
                         💚 Pagamento via Pix
                     </div>
 
-                    <a href="#" class="product-button">
+                    <a
+                        href="#"
+                        class="product-button"
+                    >
                         Ver produto
                     </a>
 
@@ -935,11 +1065,15 @@
     </section>
 
 
-    <!-- BENEFÍCIOS -->
+
+    <!-- =========================
+         BENEFÍCIOS
+    ========================= -->
 
     <section class="benefits">
 
         <div class="benefits-container">
+
 
             <div class="benefit">
 
@@ -947,7 +1081,9 @@
                     🚚
                 </div>
 
-                <h3>Envio rápido</h3>
+                <h3>
+                    Envio rápido
+                </h3>
 
                 <p>
                     Enviamos seu pedido com agilidade.
@@ -956,13 +1092,16 @@
             </div>
 
 
+
             <div class="benefit">
 
                 <div class="benefit-icon">
                     🔒
                 </div>
 
-                <h3>Compra segura</h3>
+                <h3>
+                    Compra segura
+                </h3>
 
                 <p>
                     Seus dados protegidos.
@@ -971,13 +1110,16 @@
             </div>
 
 
+
             <div class="benefit">
 
                 <div class="benefit-icon">
                     💳
                 </div>
 
-                <h3>Pagamento fácil</h3>
+                <h3>
+                    Pagamento fácil
+                </h3>
 
                 <p>
                     Diversas formas de pagamento.
@@ -986,13 +1128,16 @@
             </div>
 
 
+
             <div class="benefit">
 
                 <div class="benefit-icon">
                     💬
                 </div>
 
-                <h3>Atendimento</h3>
+                <h3>
+                    Atendimento
+                </h3>
 
                 <p>
                     Estamos disponíveis para ajudar.
@@ -1005,15 +1150,21 @@
     </section>
 
 
-    <!-- NEWSLETTER -->
+
+    <!-- =========================
+         NEWSLETTER
+    ========================= -->
 
     <section class="newsletter">
 
-        <h2>Receba nossas novidades</h2>
+        <h2>
+            Receba nossas novidades
+        </h2>
 
         <p>
             Cadastre seu e-mail para receber novidades e ofertas.
         </p>
+
 
         <form class="newsletter-form">
 
@@ -1031,7 +1182,10 @@
     </section>
 
 
-    <!-- RODAPÉ -->
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
 
     <footer id="contato">
 
@@ -1040,46 +1194,84 @@
 
             <div class="footer-column">
 
-                <h3>MINHA LOJA</h3>
+                <h3>
+                    ASOMBRADO STORE
+                </h3>
 
                 <p>
-                    Uma loja criada para oferecer
-                    praticidade e qualidade aos nossos clientes.
+                    A Asombrado Store oferece produtos selecionados
+                    com praticidade e qualidade.
                 </p>
 
             </div>
 
 
+
             <div class="footer-column">
 
-                <h3>Loja</h3>
+                <h3>
+                    Loja
+                </h3>
 
-                <a href="#">Início</a>
-                <a href="#produtos">Produtos</a>
-                <a href="#categorias">Categorias</a>
-                <a href="#ofertas">Ofertas</a>
+                <a href="#">
+                    Início
+                </a>
+
+                <a href="#produtos">
+                    Produtos
+                </a>
+
+                <a href="#categorias">
+                    Categorias
+                </a>
+
+                <a href="#ofertas">
+                    Ofertas
+                </a>
 
             </div>
 
 
+
             <div class="footer-column">
 
-                <h3>Atendimento</h3>
+                <h3>
+                    Atendimento
+                </h3>
 
-                <a href="#">WhatsApp</a>
-                <a href="#">Instagram</a>
-                <a href="#">Contato</a>
+                <a href="#">
+                    WhatsApp
+                </a>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    Contato
+                </a>
 
             </div>
 
 
+
             <div class="footer-column">
 
-                <h3>Informações</h3>
+                <h3>
+                    Informações
+                </h3>
 
-                <a href="#">Política de privacidade</a>
-                <a href="#">Termos de uso</a>
-                <a href="#">Trocas e devoluções</a>
+                <a href="#">
+                    Política de privacidade
+                </a>
+
+                <a href="#">
+                    Termos de uso
+                </a>
+
+                <a href="#">
+                    Trocas e devoluções
+                </a>
 
             </div>
 
@@ -1088,12 +1280,64 @@
 
         <div class="copyright">
 
-            © 2026 Minha Loja. Todos os direitos reservados.
+            © 2026 ASOMBRADO STORE. Todos os direitos reservados.
 
         </div>
 
     </footer>
 
 
+
+    <!-- =========================
+         SISTEMA DE PESQUISA
+    ========================= -->
+
+    <script>
+
+        function pesquisarProdutos() {
+
+            const campo = document.getElementById("campoBusca");
+
+            const busca = campo.value
+                .toLowerCase()
+                .trim();
+
+            const produtos = document.querySelectorAll(".product");
+
+
+            produtos.forEach(function(produto) {
+
+                const nome = produto
+                    .querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+                const descricao = produto
+                    .querySelector(".product-description")
+                    .textContent
+                    .toLowerCase();
+
+
+                if (
+                    nome.includes(busca) ||
+                    descricao.includes(busca)
+                ) {
+
+                    produto.style.display = "";
+
+                } else {
+
+                    produto.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+
 </body>
+
 </html>
