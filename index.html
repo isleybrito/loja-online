@@ -1,1 +1,1099 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minha Loja</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --preto: #111111;
+            --preto-2: #1b1b1b;
+            --cinza: #666666;
+            --cinza-claro: #f5f5f5;
+            --branco: #ffffff;
+            --borda: #e7e7e7;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cinza-claro);
+            color: var(--preto);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           BARRA SUPERIOR
+        ========================= */
+
+        .top-bar {
+            background: var(--preto);
+            color: white;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .header-main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            font-weight: normal;
+        }
+
+        .search {
+            flex: 1;
+            position: relative;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 14px 50px 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search input:focus {
+            border-color: #999;
+        }
+
+        .search button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            height: 36px;
+            width: 40px;
+            border: none;
+            background: var(--preto);
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .action {
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .action-icon {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 3px;
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            border-top: 1px solid var(--borda);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 20px;
+        }
+
+        .menu a {
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .menu a:hover {
+            opacity: 0.55;
+        }
+
+        /* =========================
+           BANNER
+        ========================= */
+
+        .banner {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 70px 40px;
+            min-height: 330px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #111111, #333333);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .banner-content {
+            max-width: 600px;
+        }
+
+        .banner small {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        .banner h1 {
+            font-size: 45px;
+            margin: 15px 0;
+        }
+
+        .banner p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .banner-button {
+            display: inline-block;
+            background: white;
+            color: #111;
+            padding: 14px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .banner-button:hover {
+            opacity: 0.9;
+        }
+
+        /* =========================
+           CATEGORIAS
+        ========================= */
+
+        .section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 25px;
+            margin-bottom: 6px;
+        }
+
+        .section-title p {
+            color: var(--cinza);
+            font-size: 14px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .category h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .category p {
+            color: var(--cinza);
+            font-size: 13px;
+        }
+
+        /* =========================
+           PRODUTOS
+        ========================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--borda);
+            transition: 0.2s;
+        }
+
+        .product:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            height: 230px;
+            background: #eeeeee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-category {
+            color: #888;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.4;
+            min-height: 38px;
+        }
+
+        .price {
+            margin-top: 15px;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .pix {
+            color: #2d8a4a;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .product-button {
+            display: block;
+            text-align: center;
+            background: var(--preto);
+            color: white;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .product-button:hover {
+            background: #333;
+        }
+
+        /* =========================
+           BENEFÍCIOS
+        ========================= */
+
+        .benefits {
+            background: white;
+            border-top: 1px solid var(--borda);
+            border-bottom: 1px solid var(--borda);
+            margin-top: 60px;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 35px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .benefit {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .benefit h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .benefit p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* =========================
+           NEWSLETTER
+        ========================= */
+
+        .newsletter {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #eeeeee;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .newsletter-form button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            background: #111;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 45px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 2;
+            display: block;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .header-main {
+                flex-wrap: wrap;
+            }
+
+            .search {
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header-main {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .header-actions {
+                margin-left: auto;
+                gap: 10px;
+            }
+
+            .menu-container {
+                overflow-x: auto;
+                justify-content: flex-start;
+                gap: 25px;
+                white-space: nowrap;
+            }
+
+            .banner {
+                margin: 15px;
+                padding: 45px 25px;
+                min-height: 300px;
+            }
+
+            .banner h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                margin: 35px auto;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .category {
+                padding: 20px 10px;
+            }
+
+            .category-icon {
+                font-size: 30px;
+            }
+
+            .product-image {
+                height: 160px;
+            }
+
+            .product-info {
+                padding: 12px;
+            }
+
+            .price {
+                font-size: 18px;
+            }
+
+            .benefits-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .newsletter {
+                margin: 35px 15px;
+                padding: 30px 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+
+    <div class="top-bar">
+        🚚 Envio rápido e atendimento especializado
+    </div>
+
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <div class="header-main">
+
+            <a href="#" class="logo">
+                MINHA<span>LOJA</span>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    placeholder="O que você está procurando?"
+                >
+
+                <button>🔎</button>
+            </div>
+
+            <div class="header-actions">
+
+                <div class="action">
+                    <span class="action-icon">👤</span>
+                    Conta
+                </div>
+
+                <div class="action">
+                    <span class="action-icon">🛒</span>
+                    Carrinho
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="menu">
+
+            <div class="menu-container">
+
+                <a href="#">Início</a>
+                <a href="#categorias">Categorias</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#ofertas">Ofertas</a>
+                <a href="#contato">Contato</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- BANNER -->
+
+    <section class="banner">
+
+        <div class="banner-content">
+
+            <small>Bem-vindo à nossa loja</small>
+
+            <h1>
+                Qualidade, praticidade e segurança.
+            </h1>
+
+            <p>
+                Encontre produtos selecionados e compre de forma
+                simples e rápida.
+            </p>
+
+            <a href="#produtos" class="banner-button">
+                Ver produtos
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIAS -->
+
+    <section class="section" id="categorias">
+
+        <div class="section-title">
+
+            <h2>Categorias</h2>
+
+            <p>
+                Encontre rapidamente o que você procura.
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🛍️
+                </div>
+
+                <h3>Categoria 1</h3>
+
+                <p>
+                    Confira os produtos
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    ⭐
+                </div>
+
+                <h3>Categoria 2</h3>
+
+                <p>
+                    Produtos selecionados
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🔥
+                </div>
+
+                <h3>Ofertas</h3>
+
+                <p>
+                    Confira nossas ofertas
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🆕
+                </div>
+
+                <h3>Novidades</h3>
+
+                <p>
+                    Produtos novos
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUTOS -->
+
+    <section class="section" id="produtos">
+
+        <div class="section-title">
+
+            <h2>Produtos em destaque</h2>
+
+            <p>
+                Alguns dos produtos da nossa loja.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- PRODUTO 1 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    FOTO DO PRODUTO
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Categoria
+                    </div>
+
+                    <h3>
+                        Produto exemplo 1
+                    </h3>
+
+                    <p class="product-description">
+                        Descrição do produto será colocada aqui.
+                    </p>
+
+                    <div class="price">
+                        R$ 00,00
+                    </div>
+
+                    <div class="pix">
+                        💚 Pagamento via Pix
+                    </div>
+
+                    <a href="#" class="product-button">
+                        Ver produto
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUTO 2 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    FOTO DO PRODUTO
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Categoria
+                    </div>
+
+                    <h3>
+                        Produto exemplo 2
+                    </h3>
+
+                    <p class="product-description">
+                        Descrição do produto será colocada aqui.
+                    </p>
+
+                    <div class="price">
+                        R$ 00,00
+                    </div>
+
+                    <div class="pix">
+                        💚 Pagamento via Pix
+                    </div>
+
+                    <a href="#" class="product-button">
+                        Ver produto
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUTO 3 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    FOTO DO PRODUTO
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Categoria
+                    </div>
+
+                    <h3>
+                        Produto exemplo 3
+                    </h3>
+
+                    <p class="product-description">
+                        Descrição do produto será colocada aqui.
+                    </p>
+
+                    <div class="price">
+                        R$ 00,00
+                    </div>
+
+                    <div class="pix">
+                        💚 Pagamento via Pix
+                    </div>
+
+                    <a href="#" class="product-button">
+                        Ver produto
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUTO 4 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    FOTO DO PRODUTO
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Categoria
+                    </div>
+
+                    <h3>
+                        Produto exemplo 4
+                    </h3>
+
+                    <p class="product-description">
+                        Descrição do produto será colocada aqui.
+                    </p>
+
+                    <div class="price">
+                        R$ 00,00
+                    </div>
+
+                    <div class="pix">
+                        💚 Pagamento via Pix
+                    </div>
+
+                    <a href="#" class="product-button">
+                        Ver produto
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BENEFÍCIOS -->
+
+    <section class="benefits">
+
+        <div class="benefits-container">
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🚚
+                </div>
+
+                <h3>Envio rápido</h3>
+
+                <p>
+                    Enviamos seu pedido com agilidade.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🔒
+                </div>
+
+                <h3>Compra segura</h3>
+
+                <p>
+                    Seus dados protegidos.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    💳
+                </div>
+
+                <h3>Pagamento fácil</h3>
+
+                <p>
+                    Diversas formas de pagamento.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    💬
+                </div>
+
+                <h3>Atendimento</h3>
+
+                <p>
+                    Estamos disponíveis para ajudar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+        <h2>Receba nossas novidades</h2>
+
+        <p>
+            Cadastre seu e-mail para receber novidades e ofertas.
+        </p>
+
+        <form class="newsletter-form">
+
+            <input
+                type="email"
+                placeholder="Seu melhor e-mail"
+            >
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer id="contato">
+
+        <div class="footer-container">
+
+
+            <div class="footer-column">
+
+                <h3>MINHA LOJA</h3>
+
+                <p>
+                    Uma loja criada para oferecer
+                    praticidade e qualidade aos nossos clientes.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Loja</h3>
+
+                <a href="#">Início</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#categorias">Categorias</a>
+                <a href="#ofertas">Ofertas</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Atendimento</h3>
+
+                <a href="#">WhatsApp</a>
+                <a href="#">Instagram</a>
+                <a href="#">Contato</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Informações</h3>
+
+                <a href="#">Política de privacidade</a>
+                <a href="#">Termos de uso</a>
+                <a href="#">Trocas e devoluções</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Minha Loja. Todos os direitos reservados.
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
